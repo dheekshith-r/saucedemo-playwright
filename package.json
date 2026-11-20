@@ -1,12 +1,18 @@
 {
-  "name": "playwright-saucedemo-tests",
+  "name": "saucedemo-playwright",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {},
+  "description": "End-to-end Playwright tests in TypeScript for saucedemo.com: login, cart, checkout, edge cases, accessibility and an API suite.",
+  "scripts": {
+    "test": "playwright test",
+    "test:chromium": "playwright test --project=chromium",
+    "test:firefox": "playwright test --project=firefox",
+    "test:firefox:headed": "playwright test --project=firefox --headed",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "type": "module",
   "devDependencies": {
     "@axe-core/playwright": "^4.13.0",

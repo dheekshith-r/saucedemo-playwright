@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>SauceDemo test suite banner</title>
+<style>
+:root { --ground: #0E1511; --panel: #141E18; --line: #24332A; --text: #E6EDE8; --dim: #93A399; --pass: #4CC38A; --bug: #F2A33A; }
+html, body { margin: 0; }
+body { width: 1600px; height: 800px; overflow: hidden; position: relative; background: var(--ground); color: var(--text); font-family: "Bahnschrift", sans-serif; }
+.mono { font-family: "Cascadia Mono", monospace; }
+.mark { position: absolute; left: 64px; top: 56px; display: flex; align-items: center; gap: 14px; font: 600 22px "Cascadia Mono", monospace; color: var(--dim); }
+.mark b { color: var(--pass); font-weight: 600; }
+h1 { position: absolute; left: 64px; top: 116px; width: 700px; margin: 0; font-weight: 700; font-stretch: condensed; font-size: 84px; line-height: .95; letter-spacing: -0.01em; }
+h1 em { font-style: normal; color: var(--pass); }
+.sub { position: absolute; left: 64px; top: 330px; width: 640px; margin: 0; font-size: 25px; line-height: 1.35; color: var(--dim); font-weight: 400; }
+.sub b { color: var(--text); font-weight: 600; }
+.bugs { position: absolute; left: 64px; top: 470px; width: 640px; border-left: 4px solid var(--bug); padding: 4px 0 4px 22px; }
+.bugs h2 { margin: 0 0 10px; font: 700 18px "Cascadia Mono", monospace; color: var(--bug); letter-spacing: .06em; }
+.bugs ol { margin: 0; padding: 0 0 0 22px; font-size: 21px; line-height: 1.45; }
+.bugs li::marker { color: var(--bug); font-family: "Cascadia Mono", monospace; }
+.stack { position: absolute; left: 64px; bottom: 48px; font: 400 17px "Cascadia Mono", monospace; color: var(--dim); }
+.stack b { color: var(--text); font-weight: 400; }
+.run { position: absolute; left: 800px; top: 56px; width: 736px; height: 688px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; font-family: "Cascadia Mono", monospace; }
+.cmd { padding: 22px 28px; border-bottom: 1px solid var(--line); font-size: 19px; color: var(--dim); }
+.cmd span { color: var(--text); }
+.rows { padding: 14px 28px 0; margin: 0; list-style: none; }
+.rows li { display: grid; grid-template-columns: 30px 1fr 260px 40px; align-items: baseline; padding: 7px 0; font-size: 19px; border-bottom: 1px dashed var(--line); }
+.rows li::before { content: "✓"; color: var(--pass); }
+.rows small { color: var(--dim); font-size: 15px; }
+.rows .n { text-align: right; color: var(--pass); }
+.ticks { position: absolute; left: 28px; right: 28px; bottom: 82px; display: grid; grid-template-columns: repeat(54, 1fr); gap: 3px; }
+.ticks i { height: 26px; background: var(--pass); border-radius: 2px; }
+.browsers { position: absolute; left: 28px; right: 28px; bottom: 124px; font-size: 17px; color: var(--text); line-height: 1.7; }
+.browsers span { color: var(--dim); font-size: 15px; }
+.total { position: absolute; left: 28px; right: 28px; bottom: 28px; display: flex; justify-content: space-between; font-size: 22px; }
+.total b { color: var(--pass); font-weight: 600; }
+.total span { color: var(--dim); font-size: 17px; }
+</style>
+</head>
+<body>
+  <div class="mark"><b>[✓]</b> saucedemo-playwright</div>
+  <h1>Every path through the shop, <em>tested.</em></h1>
+  <p class="sub">End-to-end tests for <b>saucedemo.com</b>: login, cart, checkout, edge cases, accessibility and an API suite. <b>54 Playwright tests</b> in TypeScript, set up for 5 browsers.</p>
+  <div class="bugs">
+    <h2>3 BUGS FOUND</h2>
+    <ol>
+      <li>The product page has no headings for screen readers.</li>
+      <li><span class="mono">problem_user</span> sees one image for every product.</li>
+      <li>Background error reports fail with 401 (placeholder token).</li>
+    </ol>
+  </div>
+  <div class="stack"><b>Playwright 1.63</b> · TypeScript · axe-core · HTML + JUnit reports</div>
+
+  <div class="run">
+    <div class="cmd">$ <span>npx playwright test</span></div>
+    <ul class="rows">
+      <li>auth.spec.ts<small>login, locked out, logout</small><span class="n">7</span></li>
+      <li>homepage.spec.ts<small>header, sort, products</small><span class="n">5</span></li>
+      <li>cart.spec.ts<small>badge, remove, reload</small><span class="n">7</span></li>
+      <li>checkout.spec.ts<small>total = items + tax</small><span class="n">7</span></li>
+      <li>edge-cases.spec.ts<small>SQL, XSS, back button</small><span class="n">9</span></li>
+      <li>special-users.spec.ts<small>problem, error, visual</small><span class="n">3</span></li>
+      <li>accessibility.spec.ts<small>keyboard, alt, labels</small><span class="n">4</span></li>
+      <li>axe.spec.ts<small>WCAG scan</small><span class="n">2</span></li>
+      <li>api.spec.ts<small>Restful-Booker CRUD</small><span class="n">8</span></li>
+      <li>mocking.spec.ts<small>failed images, slow net</small><span class="n">2</span></li>
+    </ul>
+    <div class="browsers">Projects: Chromium · Firefox · WebKit · Pixel 5 · iPhone 12<br><span>One bar = one test</span></div>
+    <div class="ticks" id="ticks"></div>
+    <div class="total"><b>54 passed (2.0m)</b><span>Edge run · 20 Nov 2026</span></div>
+  </div>
+  <script>document.getElementById('ticks').innerHTML = '<i></i>'.repeat(54);</script>
+</body>
+</html>

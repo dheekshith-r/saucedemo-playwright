@@ -1,0 +1,29 @@
+name: Test problem
+description: A test fails, is flaky, or checks the wrong thing.
+labels: [bug]
+body:
+  - type: input
+    id: test
+    attributes:
+      label: Which test?
+      placeholder: For example, checkout.spec.ts › missing postal code
+    validations:
+      required: true
+  - type: dropdown
+    id: project
+    attributes:
+      label: Browser project
+      options: [chromium, firefox, webkit, Mobile Chrome, Mobile Safari, all of them]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+      description: Paste the error. Attach the trace or screenshot from test-results if you have it.
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: OS and Node version
