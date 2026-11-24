@@ -9,7 +9,7 @@ export default defineConfig({
   workers: 1,   // one test at a time: Firefox froze at random steps when several browsers ran together
 
   reporter: [
-    ['html'],
+    ['html', { open: 'never' }],
     ['junit', { outputFile: 'results.xml' }]
   ],
 
