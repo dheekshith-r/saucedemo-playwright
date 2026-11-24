@@ -8,9 +8,11 @@
 54 Playwright tests in TypeScript for [saucedemo.com](https://www.saucedemo.com), a demo shop made for test practice. They cover login, the product list, the cart, checkout, edge cases, special users, accessibility, network mocking, and a separate API suite.
 
 <p>
-  <a href="https://github.com/dheekshithsnewjourney-crypto/saucedemo-playwright/actions/workflows/tests.yml"><img src="https://github.com/dheekshithsnewjourney-crypto/saucedemo-playwright/actions/workflows/tests.yml/badge.svg?branch=main" alt="Tests"></a>
+  <a href="https://github.com/dheekshith-r/saucedemo-playwright/actions/workflows/tests.yml"><img src="https://github.com/dheekshith-r/saucedemo-playwright/actions/workflows/tests.yml/badge.svg?branch=main" alt="Tests"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-0E1511" alt="MIT license"></a>
 </p>
+
+**Live test report:** [dheekshith-r.github.io/saucedemo-playwright](https://dheekshith-r.github.io/saucedemo-playwright/). CI updates it on every push to `main`, also when some tests fail.
 
 ## What is covered
 
